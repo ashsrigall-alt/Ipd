@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SEWA SADAN CORPORATE HOSPITAL – COMPREHENSIVE MEDICAL RECORD</title>
+<style>
+    /* GLOBAL PRINT SETTINGS */
+    @page { size: A4; margin: 1.2cm; }
+    body { 
+        font-family: "Times New Roman", serif; 
+        font-size: 12px; 
+        color: #000; 
+        -webkit-print-color-adjust: exact; 
+        line-height: 1.2;
+    }
+    
+    /* LAYOUT UTILITIES */
+    .page { 
+        page-break-after: always; 
+        position: relative; 
+        height: 1000px; /* Forces full page height */
+        display: flex;
+        flex-direction: column;
+    }
+    .page:last-child { page-break-after: auto; }
+    
+    .header { text-align: center; border-bottom: 2px solid #000; padding-bottom: 5px; margin-bottom: 10px; }
+    .hospital-name { font-size: 20px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+    .doc-title { font-size: 16px; font-weight: bold; margin-top: 5px; text-decoration: underline; }
+    
+    .section-title { 
+        background-color: #e6e6e6; 
+        border: 1px solid #000; 
+        font-weight: bold; 
+        padding: 4px; 
+        margin-top: 10px; 
+        margin-bottom: 5px; 
+        text-transform: uppercase; 
+        font-size: 13px;
+    }
+
+    /* TABLES */
+    table { width: 100%; border-collapse: collapse; margin-bottom: 5px; }
+    th, td { border: 1px solid #000; padding: 5px; vertical-align: top; text-align: left; }
+    th { background-color: #f2f2f2; font-weight: bold; text-align: center; }
+    
+    /* WRITING SPACES */
+    .h-small { height: 25px; }
+    .h-med { height: 60px; }
+    .h-large { height: 150px; }
+    .h-full { height: 400px; }
+    
+    /* INPUT VISUALS */
+    .box { display: inline-block; width: 10px; height: 10px; border: 1px solid #000; margin-right: 3px; }
+    .line { border-bottom: 1px dotted #000; width: 100%; display: inline-block; height: 16px; }
+
+    /* FOOTER */
+    .footer { 
+        margin-top: auto; 
+        border-top: 1px solid #000; 
+        padding-top: 5px; 
+        display: flex; 
+        justify-content: space-between; 
+        font-size: 10px; 
+        font-weight: bold;
+    }
+
+    /* Fix empty cells */
+    td:empty::before { content: "\00a0"; }
+</style>
+</head>
+<body>
+
+<div class="page">
+    <div class="header">
+        <div class="hospital-name">SEWA SADAN MULTISPECIALITY HOSPITAL</div>
+        <div class="doc-title">ADMISSION FACE SHEET</div>
+    </div>
+
+    <table style="margin-top:20px;">
+        <tr><td width="15%"><strong>UHID:</strong></td><td width="35%"></td><td width="15%"><strong>IPD No:</strong></td><td width="35%"></td></tr>
+        <tr><td><strong>Patient Name:</strong></td><td></td><td><strong>DOB / Age:</strong></td><td></td></tr>
+        <tr><td><strong>Sex:</strong></td><td><span class="box"></span> M <span class="box"></span> F <span class="box"></span> O</td><td><strong>Blood Group:</strong></td><td></td></tr>
+        <tr><td><strong>Father/Husband:</strong></td><td></td><td><strong>Marital Status:</strong></td><td></td></tr>
+        <tr><td><strong>Address:</strong></td><td colspan="3" class="h-small"></td></tr>
+        <tr><td><strong>Phone:</strong></td><td></td><td><strong>Email:</strong></td><td></td></tr>
+        <tr><td><strong>Aadhar / ID:</strong></td><td></td><td><strong>Nationality:</strong></td><td></td></tr>
+    </table>
+
+    <div class="section-title">ADMISSION DETAILS</div>
+    <table>
+        <tr><td><strong>Date of Admission:</strong></td><td></td><td><strong>Time:</strong></td><td></td></tr>
+        <tr><td><strong>Department:</strong></td><td></td><td><strong>Admitting Unit:</strong></td><td></td></tr>
+        <tr><td><strong>Ward / Room:</strong></td><td></td><td><strong>Bed No:</strong></td><td></td></tr>
+        <tr><td><strong>Consultant:</strong></td><td></td><td><strong>Ref. Doctor:</strong></td><td></td></tr>
+        <tr><td><strong>MLC Case?</strong></td><td><span class="box"></span> Yes <span class="box"></span> No</td><td><strong>MLC No:</strong></td><td></td></tr>
+    </table>
+
+    <div class="section-title">INSURANCE / TPA DETAILS</div>
+    <table>
+        <tr><td><strong>Payment Mode:</strong></td><td colspan="3"><span class="box"></span> Cash <span class="box"></span> TPA/Ins <span class="box"></span> Corp <span class="box"></span> Staff</td></tr>
+        <tr><td><strong>TPA Name:</strong></td><td></td><td><strong>Policy No:</strong></td><td></td></tr>
+        <tr><td><strong>Approval Amount:</strong></td><td></td><td><strong>Pre-Auth ID:</strong></td><td></td></tr>
+    </table>
+
+    <div class="section-title">EMERGENCY CONTACT</div>
+    <table>
+        <tr><td><strong>Name:</strong></td><td></td><td><strong>Relation:</strong></td><td></td></tr>
+        <tr><td><strong>Address:</strong></td><td colspan="3"></td></tr>
+        <tr><td><strong>Phone:</strong></td><td></td><td><strong>Alt Phone:</strong></td><td></td></tr>
+    </table>
+
+    <div class="footer"><span>Form: ADM-01</span><span>Page 1 of 40</span></div>
+</div>
+
+<div class="page">
+    <div class="header"><div class="doc-title">GENERAL INFORMED CONSENT & RIGHTS</div></div>
+
+    <div class="section-title">1. CONSENT FOR ADMISSION & GENERAL TREATMENT</div>
+    <div style="border:1px solid #000; padding:10px; font-size:11px; margin-bottom:10px;">
+        I, the undersigned, hereby give my consent for the admission and treatment of the patient named __________________________.
+        I authorize the doctors and staff of Sewa Sadan Hospital to administer necessary medical treatment, nursing care, and diagnostic tests (X-ray, Labs, etc.).
+        <br><br>
+        I understand that the practice of medicine is not an exact science and NO GUARANTEE has been made to me regarding the outcome of the treatment.
+    </div>
+
+    <div class="section-title">2. FINANCIAL RESPONSIBILITY</div>
+    <div style="border:1px solid #000; padding:10px; font-size:11px; margin-bottom:10px;">
+        I agree to settle all hospital bills as per the hospital's tariff. I understand that interim bills must be cleared within 24 hours of presentation.
+        If paying via Insurance/TPA, I understand that any disallowed amount is my responsibility.
+    </div>
+
+    <div class="section-title">3. PATIENT & FAMILY RIGHTS (ACKNOWLEDGEMENT)</div>
+    <div style="border:1px solid #000; padding:10px; font-size:11px;">
+        I acknowledge that the Patient Rights and Responsibilities have been explained to me in a language I understand.
+        <ul>
+            <li>Right to respectful care and privacy.</li>
+            <li>Right to information about diagnosis and costs.</li>
+            <li>Right to refuse treatment.</li>
+            <li>Right to complain/give feedback.</li>
+        </ul>
+    </div>
+
+    <table style="margin-top:50px;">
+        <tr>
+            <td style="height:60px;"><strong>Signature of Patient</strong></td>
+            <td><strong>Signature of Witness</strong></td>
+        </tr>
+        <tr>
+            <td style="height:60px;"><strong>Signature of Next of Kin</strong><br>(Name: ______________)</td>
+            <td><strong>Admission Staff Sign</strong><br>(Date: ______________)</td>
+        </tr>
+    </table>
+
+    <div class="footer"><span>Form: ADM-02 (NABH PRE.2)</span><span>Page 2 of 40</span></div>
+</div>
+
+<div class="page">
+    <div class="header"><div class="doc-title">INITIAL MEDICAL ASSESSMENT - HISTORY</div></div>
+
+    <div class="section-title">CHIEF COMPLAINTS (WITH DURATION)</div>
+    <table>
+        <tr><td class="h-med"></td></tr>
+    </table>
+
+    <div class="section-title">HISTORY OF PRESENT ILLNESS (HOPI)</div>
+    <table>
+        <tr><td class="h-large"></td></tr>
+    </table>
+
+    <div class="section-title">PAST MEDICAL / SURGICAL HISTORY</div>
+    <table>
+        <tr><td width="20%"><strong>DM / HTN / IHD</strong></td><td class="h-small"></td></tr>
+        <tr><td><strong>TB / Asthma</strong></td><td class="h-small"></td></tr>
+        <tr><td><strong>Thyroid / Epilepsy</strong></td><td class="h-small"></td></tr>
+        <tr><td><strong>Prev Surgeries</strong></td><td class="h-small"></td></tr>
+        <tr><td><strong>Others</strong></td><td class="h-small"></td></tr>
+    </table>
+
+    <div class="section-title">DRUG HISTORY & ALLERGIES</div>
+    <table>
+        <tr>
+            <td><strong>Current Meds:</strong></td>
+            <td class="h-med"></td>
+        </tr>
+        <tr>
+            <td style="color:red; font-weight:bold;">ALLERGIES:</td>
+            <td style="color:red; font-weight:bold;"></td>
+        </tr>
+    </table>
+
+    <div class="footer"><span>Form: MED-01 (NABH AAC.2)</span><span>Page 3 of 40</span></div>
+</div>
+
+<div class="page">
+    <div class="header"><div class="doc-title">INITIAL MEDICAL ASSESSMENT - EXAMINATION</div></div>
+
+    <div class="section-title">GENERAL PHYSICAL EXAMINATION</div>
+    <table>
+        <tr>
+            <td><strong>Consciousness:</strong> <span class="box"></span> Alert <span class="box"></span> Drowsy <span class="box"></span> Stupor</td>
+            <td><strong>GCS:</strong> E___ V___ M___ / 15</td>
+        </tr>
+        <tr>
+            <td><strong>Built:</strong> <span class="box"></span> Avg <span class="box"></span> Obese <span class="box"></span> Thin</td>
+            <td><strong>Nutrition:</strong> <span class="box"></span> Good <span class="box"></span> Poor</td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td><strong>Pallor:</strong> <span class="box"></span> + <span class="box"></span> -</td>
+            <td><strong>Icterus:</strong> <span class="box"></span> + <span class="box"></span> -</td>
+            <td><strong>Cyanosis:</strong> <span class="box"></span> + <span class="box"></span> -</td>
+            <td><strong>Clubbing:</strong> <span class="box"></span> + <span class="box"></span> -</td>
+        </tr>
+        <tr>
+            <td><strong>Lymph Nodes:</strong> <span class="box"></span> + <span class="box"></span> -</td>
+            <td><strong>Edema:</strong> <span class="box"></span> + <span class="box"></span> -</td>
+            <td><strong>JVP:</strong></td>
+            <td><strong>Skin:</strong></td>
+        </tr>
+    </table>
+
+    <div class="section-title">VITALS ON ADMISSION</div>
+    <table>
+        <tr>
+            <td><strong>Pulse:</strong> ____ /min</td>
+            <td><strong>BP:</strong> ____ / ____ mmHg</td>
+            <td><strong>Temp:</strong> ____ °F</td>
+            <td><strong>RR:</strong> ____ /min</td>
+            <td><strong>SpO2:</strong> ____ %</td>
+            <td><strong>RBS:</strong> ____ mg/dl</td>
+        </tr>
+    </table>
+
+    <div class="section-title">SYSTEMIC EXAMINATION (BRIEF)</div>
+    <table>
+        <tr><td><strong>CVS:</strong> (S1 S2, Murmurs)</td><td class="h-small"></td></tr>
+        <tr><td><strong>RESP:</strong> (Air Entry, Added Sounds)</td><td class="h-small"></td></tr>
+        <tr><td><strong>P/A:</strong> (Soft, Tenderness, Organomegaly)</td><td class="h-small"></td></tr>
+        <tr><td><strong>CNS:</strong> (Motor, Sensory, Reflexes)</td><td class="h-small"></td></tr>
+    </table>
+
+    <div class="section-title">PROVISIONAL DIAGNOSIS</div>
+    <table><tr><td class="h-med"></td></tr></table>
+
+    <div class="section-title">PLAN OF CARE</div>
+    <table><tr><td class="h-med"></td></tr></table>
+
+    <div class="footer"><span>Form: MED-02</span><span>Page 4 of 40</span></div>
+</div>
+
+<div class="page">
+    <div class="header"><div class="doc-title">INITIAL NURSING ASSESSMENT (Page 1)</div></div>
+
+    <div class="section-title">MODE OF ARRIVAL & BELONGINGS</div>
+    <table>
+        <tr>
+            <td><span class="box"></span> Walking <span class="box"></span> Wheelchair <span class="box"></span> Stretcher</td>
+            <td><strong>Valuables Handed to Relative?</strong> <span class="box"></span> Yes <span class="box"></span> No</td>
+        </tr>
+    </table>
+
+    <div class="section-title">FUNCTIONAL ASSESSMENT</div>
+    <table>
+        <tr>
+            <td><strong>Hearing:</strong> <span class="box"></span> Normal <span class="box"></span> Impaired <span class="box"></span> Aid</td>
+            <td><strong>Vision:</strong> <span class="box"></span> Normal <span class="box"></span> Impaired <span class="box"></span> Glasses</td>
+        </tr>
+        <tr>
+            <td><strong>Speech:</strong> <span class="box"></span> Normal <span class="box"></span> Slurred <span class="box"></span> Aphasia</td>
+            <td><strong>Language:</strong> _______________________</td>
+        </tr>
+        <tr>
+            <td><strong>Sleep Pattern:</strong> <span class="box"></span> Normal <span class="box"></span> Insomnia</td>
+            <td><strong>Bowel/Bladder:</strong> <span class="box"></span> Continent <span class="box"></span> Incontinent</td>
+        </tr>
+    </table>
+
+    <div class="section-title">SKIN CONDITION ON ADMISSION</div>
+    <table>
+        <tr>
+            <td>
+                <strong>Intact?</strong> <span class="box"></span> Yes <span class="box"></span> No <br>
+                If No, describe (Bed sore / Bruise / Wound):
+                <br><br><br>
+            </td>
+            <td width="30%" style="border:1px solid #000; text-align:center;">
+                (Draw Diagram Here)
+                <br><br><br><br><br>
+            </td>
+        </tr>
+    </table>
+
+    <div class="section-title">NURSING CARE PLAN (INITIAL)</div>
+    <table><tr><td class="h-med"></td></tr></table>
+
+    <div class="footer"><span>Form: NRS-01</span><span>Page 5 of 40</span></div>
+</div>
+
+<div class="page">
+    <div class="header"><div class="doc-title">FALL RISK & VULNERABILITY ASSESSMENT</div></div>
+
+    <div class="section-title">MORSE FALL SCALE</div>
+    <table>
+        <tr><th>Risk Factor</th><th>Scale</th><th>Score</th></tr>
+        <tr><td>History of Falls</td><td>No = 0 | Yes = 25</td><td></td></tr>
+        <tr><td>Secondary Diagnosis</td><td>No = 0 | Yes = 15</td><td></td></tr>
+        <tr><td>Ambulatory Aid</td><td>None=0 | Crutch/Cane=15 | Furniture=30</td><td></td></tr>
+        <tr><td>IV Therapy / Heparin Lock</td><td>No = 0 | Yes = 20</td><td></td></tr>
+        <tr><td>Gait</td><td>Normal=0 | Weak=10 | Impaired=20</td><td></td></tr>
+        <tr><td>Mental Status</td><td>Oriented=0 | Overestimates Ability=15</td><td></td></tr>
+        <tr><td colspan="2" style="text-align:right;"><strong>TOTAL SCORE:</strong></td><td><strong>_____</strong></td></tr>
+    </table>
+    <div style="font-size:11px; padding:5px;">
+        <em>Score: 0-24 (No Risk) | 25-50 (Low Risk) | >51 (High Risk - Yellow Band/Side Rails Up)</em>
+    </div>
+
+    <div class="section-title">VULNERABLE PATIENT ASSESSMENT</div>
+    <table>
+        <tr>
+            <td><span class="box"></span> Elderly (>65)</td>
+            <td><span class="box"></span> Child (<12)</td>
+            <td><span class="box"></span> Differently Abled</td>
+        </tr>
+        <tr>
+            <td><span class="box"></span> Mentally Challenged</td>
+            <td><span class="box"></span> Immunocompromised</td>
+            <td><span class="box"></span> Comatose/Sedated</td>
+        </tr>
+    </table>
+    
+    <div class="section-title">MEASURES TAKEN</div>
+    <table>
+        <tr><td><span class="box"></span> Side Rails Up</td><td><span class="box"></span> Call Bell Accessible</td></tr>
+        <tr><td><span class="box"></span> Pt/Relative Educated</td><td><span class="box"></span> Identification Band Applied</td></tr>
+    </table>
+
+    <div class="footer"><span>Form: NRS-02 (NABH COP.3)</span><span>Page 6 of 40</span></div>
+</div>
+
+<div class="page">
+    <div class="header"><div class="doc-title">NUTRITIONAL ASSESSMENT RECORD</div></div>
+
+    <table>
+        <tr>
+            <td><strong>Height:</strong> ____ cm</td>
+            <td><strong>Weight:</strong> ____ kg</td>
+            <td><strong>BMI:</strong> ____</td>
+            <td><strong>Ideal Body Wt:</strong> ____ kg</td>
+        </tr>
+    </table>
+
+    <div class="section-title">SCREENING (NRS-2002 / MUST)</div>
+    <table>
+        <tr>
+            <td>1. Unintentional weight loss > 5% in 3 months?</td>
+            <td><span class="box"></span> Yes <span class="box"></span> No</td>
+        </tr>
+        <tr>
+            <td>2. Reduced food intake in last week?</td>
+            <td><span class="box"></span> Yes <span class="box"></span> No</td>
+        </tr>
+        <tr>
+            <td>3. BMI < 18.5?</td>
+            <td><span class="box"></span> Yes <span class="box"></span> No</td>
+        </tr>
+        <tr>
+            <td>4. Severity of Disease (e.g. ICU, Major Surgery)?</td>
+            <td><span class="box"></span> Yes <span class="box"></span> No</td>
+        </tr>
+    </table>
+
+    <div class="section-title">DIETARY PREFERENCES</div>
+    <table>
+        <tr>
+            <td><strong>Type:</strong> <span class="box"></span> Veg <span class="box"></span> Non-Veg <span class="box"></span> Egg</td>
+            <td><strong>Texture:</strong> <span class="box"></span> Solid <span class="box"></span> Soft <span class="box"></span> Liquid <span class="box"></span> Ryle's Tube</td>
+        </tr>
+        <tr>
+            <td><strong>Specifics:</strong> <span class="box"></span> Diabetic <span class="box"></span> Renal <span class="box"></span> Low Salt</td>
+            <td><strong>Allergies (Food):</strong> ___________________</td>
+        </tr>
+    </table>
+
+    <div class="section-title">DIETICIAN PLAN</div>
+    <table><tr><td class="h-large"></td></tr></table>
+
+    <div class="footer"><span>Form: NUT-01 (NABH COP.3)</span><span>Page 7 of 40</span></div>
+</div>
+
+<div class="page">
+    <div class="header"><div class="doc-title">PAIN ASSESSMENT & REASSESSMENT CHART</div></div>
+    
+    <div style="text-align:center; padding:10px; font-weight:bold; font-size:14px; border:1px solid #000; margin-bottom:10px;">
+        VAS SCALE: 0 (No Pain) ———— 5 (Moderate) ———— 10 (Worst Possible)
+    </div>
+
+    <table>
+        <tr>
+            <th width="12%">Date/Time</th>
+            <th width="10%">Pain Score (0-10)</th>
+            <th width="15%">Site / Nature</th>
+            <th width="20%">Intervention (Drug/Position)</th>
+            <th width="12%">Re-check Time</th>
+            <th width="10%">Re-check Score</th>
+            <th width="15%">Sign</th>
+        </tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    </table>
+
+    <div class="footer"><span>Form: NRS-05</span><span>Page 8 of 40</span></div>
+</div>
+
+<div class="page">
+    <div class="header"><div class="doc-title">TPR / VITALS MONITORING SHEET</div></div>
+    
+    <table>
+        <thead>
+            <tr>
+                <th width="10%">Date</th>
+                <th width="8%">Time</th>
+                <th width="10%">Temp (°F)</th>
+                <th width="10%">Pulse (/min)</th>
+                <th width="10%">Resp (/min)</th>
+                <th width="12%">BP (mmHg)</th>
+                <th width="10%">SpO2 (%)</th>
+                <th width="10%">Urine (ml)</th>
+                <th width="10%">Sign</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+    </table>
+    <div class="footer"><span>Form: CLN-01</span><span>Page 9 of 40</span></div>
+</div>
+
+<div class="page">
+    <div class="header"><div class="doc-title">BLOOD SUGAR (GRBS) MONITORING CHART</div></div>
+    
+    <table>
+        <tr>
+            <th width="15%">Date</th>
+            <th width="10%">Time</th>
+            <th width="15%">Scheduled (Fast/PP)</th>
+            <th width="15%">GRBS (mg/dl)</th>
+            <th width="25%">Insulin Given (Units)</th>
+            <th width="20%">Sign</th>
+        </tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td><td></td><td></td></tr>
+    </table>
+    <div class="footer"><span>Form: CLN-02</span><span>Page 10 of 40</span></div>
+</div>
+
+<div class="page">
+    <div class="header"><div class="doc-title">MEDICATION CHART (PARENTERAL / INJECTIONS)</div></div>
+    
+    <div class="section-title">ANTIBIOTICS / INJECTIONS</div>
+    <table>
+        <thead>
+            <tr>
+                <th width="25%">Drug Name & Dose</th>
+                <th width="10%">Route</th>
+                <th width="10%">Freq</th>
+                <th width="5%">Date</th>
+                <th width="10%">8 AM</th>
+                <th width="10%">2 PM</th>
+                <th width="10%">8 PM</th>
+                <th width="10%">2 AM</th>
+                <th width="10%">Sign</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td rowspan="2" class="h-small">1.</td><td rowspan="2"></td><td rowspan="2"></td><td>Start:</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Stop:</td><td></td><td></td><td></td><td></td><td></td></tr>
+            
+            <tr><td rowspan="2" class="h-small">2.</td><td rowspan="2"></td><td rowspan="2"></td><td>Start:</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Stop:</td><td></td><td></td><td></td><td></td><td></td></tr>
+
+            <tr><td rowspan="2" class="h-small">3.</td><td rowspan="2"></td><td rowspan="2"></td><td>Start:</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Stop:</td><td></td><td></td><td></td><td></td><td></td></tr>
+
+            <tr><td rowspan="2" class="h-small">4.</td><td rowspan="2"></td><td rowspan="2"></td><td>Start:</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Stop:</td><td></td><td></td><td></td><td></td><td></td></tr>
+
+            <tr><td rowspan="2" class="h-small">5.</td><td rowspan="2"></td><td rowspan="2"></td><td>Start:</td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Stop:</td><td></td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+    </table>
+    
+    <div class="section-title">IV FLUIDS / INFUSIONS</div>
+    <table>
+        <tr>
+            <th>Fluid Name</th>
+            <th>Vol</th>
+            <th>Additives</th>
+            <th>Rate (ml/hr)</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Sign</th>
+        </tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+    </table>
+
+    <div class="footer"><span>Form: MED-03 (NABH COP.5)</span><span>Page 11 of 40</span></div>
+</div>
+
+<div class="page">
+    <div class="header"><div class="doc-title">MEDICATION CHART (ORAL)</div></div>
+    
+    <table>
+        <thead>
+            <tr>
+                <th width="30%">Drug Name & Dose</th>
+                <th width="10%">Freq</th>
+                <th width="10%">Date</th>
+                <th width="10%">Morning</th>
+                <th width="10%">Afternoon</th>
+                <th width="10%">Evening</th>
+                <th width="10%">Night</th>
+                <th width="10%">Sign</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td rowspan="3" class="h-small">1.</td><td rowspan="3"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+
+            <tr><td rowspan="3" class="h-small">2.</td><td rowspan="3"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+
+            <tr><td rowspan="3" class="h-small">3.</td><td rowspan="3"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+
+            <tr><td rowspan="3" class="h-small">4.</td><td rowspan="3"></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+    </table>
+    <div class="footer"><span>Form: MED-04</span><span>Page 12 of 40</span></div>
+</div>
+
+<div class="page">
+    <div class="header"><div class="doc-title">DOCTOR'S PROGRESS NOTES</div></div>
+    
+    <table>
+        <tr>
+            <th width="15%">Date / Time</th>
+            <th width="70%">Clinical Notes / Investigation Review / Plan</th>
+            <th width="15%">Name & Sign</th>
+        </tr>
+        <tr><td class="h-large"></td><td></td><td></td></tr>
+        <tr><td class="h-large"></td><td></td><td></td></tr>
+        <tr><td class="h-large"></td><td></td><td></td></tr>
+    </table>
+    <div class="footer"><span>Form: CLN-05 (NABH COP.8)</span><span>Page 13 of 40</span></div>
+</div>
+
+<div class="page">
+    <div class="header"><div class="doc-title">NURSING PROGRESS NOTES</div></div>
+    
+    <table>
+        <tr>
+            <th width="15%">Date / Time</th>
+            <th width="70%">Observation / Action / Response</th>
+            <th width="15%">Sign</th>
+        </tr>
+        <tr><td class="h-med"></td><td></td><td></td></tr>
+        <tr><td class="h-med"></td><td></td><td></td></tr>
+        <tr><td class="h-med"></td><td></td><td></td></tr>
+        <tr><td class="h-med"></td><td></td><td></td></tr>
+        <tr><td class="h-med"></td><td></td><td></td></tr>
+        <tr><td class="h-med"></td><td></td><td></td></tr>
+    </table>
+    <div class="footer"><span>Form: NRS-03</span><span>Page 14 of 40</span></div>
+</div>
+
+<div class="page">
+    <div class="header"><div class="doc-title">INFORMED CONSENT FOR SURGERY / PROCEDURE</div></div>
+    
+    <div style="padding:10px; border:1px solid #000; margin-bottom:10px;">
+        <strong>Patient Name:</strong> ____________________________________ <br><br>
+        <strong>Procedure Planned:</strong> ____________________________________ <br><br>
+        <strong>Side/Site:</strong> <span class="box"></span> Left <span class="box"></span> Right <span class="box"></span> Bilateral <span class="box"></span> NA
+    </div>
+
+    <div style="font-size:11px; margin-bottom:10px;">
+        <p>1. I hereby authorize Dr. _______________________ and their team to perform the above procedure.</p>
+        <p>2. The nature, purpose, risks (bleeding, infection, injury to adjacent organs), benefits, and alternatives have been explained to me.</p>
+        <p>3. I consent to the administration of Anesthesia (General / Spinal / Local) as deemed necessary by the Anesthetist.</p>
+        <p>4. I consent to the disposal of any tissue removed during the procedure.</p>
+        <p>5. I understand that during surgery, unforeseen conditions may arise requiring additional procedures, for which I give consent.</p>
+    </div>
+
+    <div class="section-title">SIGNATURES</div>
+    <table style="border:none;">
+        <tr>
+            <td style="border:none; height:80px;">
+                _____________________________<br><strong>Patient / Surrogate Signature</strong><br>Date:
+            </td>
+            <td style="border:none;">
+                _____________________________<br><strong>Doctor's Signature</strong><br>Date:
+            </td>
+        </tr>
+        <tr>
+            <td style="border:none; height:80px;">
+                _____________________________<br><strong>Witness Signature</strong><br>Rel:
+            </td>
+            <td style="border:none;">
+                _____________________________<br><strong>Interpreter (if any)</strong>
+            </td>
+        </tr>
+    </table>
+    <div class="footer"><span>Form: SURG-01 (NABH PRE.2)</span><span>Page 15 of 40</span></div>
+</div>
+
+<div class="page">
+    <div class="header"><div class="doc-title">PRE-OPERATIVE CHECKLIST (WARD TO OT)</div></div>
+    
+    <table>
+        <tr><th>Item</th><th>Ward Nurse Check</th><th>OT Nurse Check</th></tr>
+        <tr><td>1. Consent Signed?</td><td><span class="box"></span> Yes</td><td><span class="box"></span> Yes</td></tr>
+        <tr><td>2. NBM Status maintained?</td><td><span class="box"></span> Yes</td><td><span class="box"></span> Yes</td></tr>
+        <tr><td>3. Jewelry/Dentures Removed?</td><td><span class="box"></span> Yes</td><td><span class="box"></span> Yes</td></tr>
+        <tr><td>4. Pre-op Meds Given?</td><td><span class="box"></span> Yes</td><td><span class="box"></span> Yes</td></tr>
+        <tr><td>5. Site Marked?</td><td><span class="box"></span> Yes</td><td><span class="box"></span> Yes</td></tr>
+        <tr><td>6. PAC (Anesthesia) Clearance?</td><td><span class="box"></span> Yes</td><td><span class="box"></span> Yes</td></tr>
+        <tr><td>7. Voided/Catheterized?</td><td><span class="box"></span> Yes</td><td><span class="box"></span> Yes</td></tr>
+        <tr><td>8. Patient Gown Changed?</td><td><span class="box"></span> Yes</td><td><span class="box"></span> Yes</td></tr>
+        <tr><td>9. Vitals Stable?</td><td><span class="box"></span> Yes</td><td><span class="box"></span> Yes</td></tr>
+        <tr><td>10. Investigations attached?</td><td><span class="box"></span> Yes</td><td><span class="box"></span> Yes</td></tr>
+    </table>
+    
+    <div class="section-title">HANDOVER</div>
+    <table>
+        <tr>
+            <td><strong>Ward Nurse:</strong> ________________</td>
+            <td><strong>OT Nurse:</strong> ________________</td>
+            <td><strong>Time:</strong> ________</td>
+        </tr>
+    </table>
+    <div class="footer"><span>Form: SURG-02</span><span>Page 16 of 40</span></div>
+</div>
+
+<div class="page">
+    <div class="header"><div class="doc-title">OPERATION NOTES</div></div>
+    
+    <table>
+        <tr>
+            <td><strong>Surgeon:</strong></td>
+            <td><strong>Anesthetist:</strong></td>
+        </tr>
+        <tr>
+            <td><strong>Start Time:</strong></td>
+            <td><strong>End Time:</strong></td>
+        </tr>
+        <tr>
+            <td><strong>Anesthesia Type:</strong></td>
+            <td><strong>Position:</strong></td>
+        </tr>
+    </table>
+
+    <div class="section-title">PROCEDURE DETAILS / FINDINGS</div>
+    <table><tr><td class="h-full"></td></tr></table>
+    
+    <div class="section-title">POST-OP ORDERS</div>
+    <table><tr><td class="h-large"></td></tr></table>
+
+    <div class="footer"><span>Form: SURG-03</span><span>Page 17 of 40</span></div>
+</div>
+
+<div class="page">
+    <div class="header"><div class="doc-title">DISCHARGE SUMMARY DRAFT</div></div>
+    
+    <div class="section-title">FINAL DIAGNOSIS</div>
+    <table><tr><td class="h-med"></td></tr></table>
+
+    <div class="section-title">CASE SUMMARY</div>
+    <table><tr><td class="h-large"></td></tr></table>
+
+    <div class="section-title">TREATMENT GIVEN</div>
+    <table><tr><td class="h-med"></td></tr></table>
+
+    <div class="section-title">DISCHARGE MEDICATIONS</div>
+    <table>
+        <tr><th>Drug</th><th>Dose</th><th>Freq</th><th>Duration</th></tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td></tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td></tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td></tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td></tr>
+        <tr><td class="h-small"></td><td></td><td></td><td></td></tr>
+    </table>
+
+    <div class="footer"><span>Form: DIS-01 (NABH AAC.14)</span><span>Page 18 of 40</span></div>
+</div>
+
+</body>
+</html>
